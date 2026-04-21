@@ -905,7 +905,7 @@ main { position: relative; z-index: 2; }
         <span class="cta-arrow">→</span>
       </button>
       <div class="landing-meta">
-        <div class="meta-item"><div class="meta-num">15</div><div class="meta-label">PH paddles ranked</div></div>
+        <div class="meta-item"><div class="meta-num">22</div><div class="meta-label">PH paddles ranked</div></div>
         <div class="meta-item"><div class="meta-num">6</div><div class="meta-label">Questions</div></div>
         <div class="meta-item"><div class="meta-num">2m</div><div class="meta-label">Minutes</div></div>
       </div>
@@ -977,7 +977,7 @@ main { position: relative; z-index: 2; }
               <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:4px;">Starting from</div>
             </div>
             <div style="padding:16px;background:var(--cream-deep);border-radius:14px;">
-              <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:500;font-style:italic;color:var(--coral);line-height:1;">15</div>
+              <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:500;font-style:italic;color:var(--coral);line-height:1;">22</div>
               <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:4px;">Paddles ranked</div>
             </div>
             <div style="padding:16px;background:var(--cream-deep);border-radius:14px;">
@@ -1097,19 +1097,74 @@ const PADDLES = [
   { id:'slk-widebody-power', name:'SLK ERA Power Widebody Paddle', brand:'SLK',
     scores:{power:90,control:85,spin:86,arm:80}, weight:'medium',
     level:['advanced'], style:['banger','allaround'], priorities:['power','balance'],
-    price:'13,449', shopee:'https://s.shopee.ph/7fVwmfjzWi' }
+    price:'13,449', shopee:'https://s.shopee.ph/7fVwmfjzWi' },
+
+  // --- Placeholder paddles to fill coverage gaps (replace with real Shopee products) ---
+
+  { id:'placeholder-beginner-power-1', name:'Budget Power Paddle', brand:'TBD',
+    scores:{power:78,control:72,spin:70,arm:82}, weight:'medium',
+    level:['beginner'], style:['banger'], priorities:['power'],
+    price:'1,500', shopee:'#', image:'' },
+
+  { id:'placeholder-beginner-all-1', name:'Budget Allaround Paddle', brand:'TBD',
+    scores:{power:70,control:78,spin:72,arm:86}, weight:'light',
+    level:['beginner'], style:['allaround'], priorities:['balance'],
+    price:'1,200', shopee:'#', image:'' },
+
+  { id:'placeholder-beginner-dinker-1', name:'Budget Control Paddle', brand:'TBD',
+    scores:{power:68,control:82,spin:70,arm:88}, weight:'light',
+    level:['beginner'], style:['dinker'], priorities:['control'],
+    price:'999', shopee:'#', image:'' },
+
+  { id:'placeholder-mid-dinker-1', name:'Mid Control Paddle', brand:'TBD',
+    scores:{power:76,control:86,spin:78,arm:84}, weight:'light',
+    level:['intermediate'], style:['dinker'], priorities:['control'],
+    price:'3,500', shopee:'#', image:'' },
+
+  { id:'placeholder-mid-banger-1', name:'Mid Power Paddle', brand:'TBD',
+    scores:{power:86,control:80,spin:82,arm:78}, weight:'medium',
+    level:['intermediate'], style:['banger'], priorities:['power','spin'],
+    price:'4,200', shopee:'#', image:'' },
+
+  { id:'placeholder-high-dinker-1', name:'Premium Control Paddle', brand:'TBD',
+    scores:{power:80,control:90,spin:84,arm:84}, weight:'medium',
+    level:['intermediate','advanced'], style:['dinker'], priorities:['control','spin'],
+    price:'6,800', shopee:'#', image:'' },
+
+  { id:'placeholder-ultra-all-1', name:'Premium Allaround Paddle', brand:'TBD',
+    scores:{power:86,control:88,spin:86,arm:82}, weight:'medium',
+    level:['advanced'], style:['allaround'], priorities:['balance','spin'],
+    price:'9,500', shopee:'#', image:'' }
 ];
 
 const BALLS = [
-  { id:'ball-outdoor-1', name:'Outdoor Pickleball (6-Pack)', brand:'Placeholder Brand',
+  { id:'ball-outdoor-1', name:'ProSwing Outdoor Pickleball (6-Pack)', brand:'ProSwing',
     desc:'Durable 40-hole design for outdoor courts. Wind-resistant.',
-    price:'499', shopee:'#' },
-  { id:'ball-indoor-1', name:'Indoor Pickleball (6-Pack)', brand:'Placeholder Brand',
+    price:'272', shopee:'https://s.shopee.ph/40clhMqowE' },
+  { id:'ball-indoor-1', name:'Incepai Indoor Pickleball (6-Pack)', brand:'INCEPAI',
     desc:'Softer 26-hole design for indoor courts. Quieter bounce.',
-    price:'399', shopee:'#' },
-  { id:'ball-pro-1', name:'Pro Tournament Balls (12-Pack)', brand:'Placeholder Brand',
+    price:'462', shopee:'https://s.shopee.ph/8ASKf4e98D' },
+  { id:'ball-pro-1', name:'Renji Pro Tournament Balls (12-Pack)', brand:'Renji Pro',
     desc:'USAPA-approved for competitive play. Consistent bounce.',
-    price:'899', shopee:'#' }
+    price:'582', shopee:'https://s.shopee.ph/8fObFpB0GT' }
+];
+
+const GRIPS = [
+  { id:'grip-1', name:'Overgrip 3-Pack', brand:'Placeholder',
+    desc:'Sweat-absorbing tacky grip for better paddle control.',
+    price:'299', shopee:'#' },
+  { id:'grip-2', name:'Cushion Replacement Grip', brand:'Placeholder',
+    desc:'Thick padded grip for arm comfort and shock absorption.',
+    price:'399', shopee:'#' }
+];
+
+const BAGS = [
+  { id:'bag-1', name:'Paddle Sling Bag', brand:'Placeholder',
+    desc:'Fits 1-2 paddles + balls. Lightweight for casual play.',
+    price:'799', shopee:'#' },
+  { id:'bag-2', name:'Pickleball Backpack', brand:'Placeholder',
+    desc:'Fits 2-4 paddles, shoes, water bottle. Padded compartments.',
+    price:'1,899', shopee:'#' }
 ];
 
 const FAQS = [
@@ -1339,6 +1394,39 @@ function showLoading() {
   }, 2300);
 }
 
+function getMatchReason(p, answers) {
+  const reasons = [];
+  if (p.style.includes(answers.style)) {
+    const styleNames = { banger: 'power play', dinker: 'soft game', allaround: 'versatile play' };
+    reasons.push('Built for ' + styleNames[answers.style]);
+  }
+  if (p.priorities.includes(answers.priority)) {
+    const prioNames = { power: 'maximum power', control: 'precise control', spin: 'heavy spin', balance: 'balanced performance' };
+    reasons.push(prioNames[answers.priority]);
+  }
+  if (answers.arm !== 'none' && p.scores.arm >= 82) reasons.push('arm-friendly design');
+  const tierNames = { low: 'great value', mid: 'solid mid-range', high: 'premium quality', ultra: 'top-tier performance' };
+  reasons.push(tierNames[getBudgetTier(p.price)]);
+  return reasons.slice(0, 3).join(' · ');
+}
+
+function getBestForTag(p) {
+  const level = p.level[0];
+  const style = p.style[0];
+  const tags = {
+    'beginner-allaround': { text: 'Best for Beginners', color: 'var(--court)' },
+    'beginner-dinker': { text: 'Best for New Players', color: 'var(--court)' },
+    'beginner-banger': { text: 'Beginner Power Pick', color: 'var(--coral)' },
+    'intermediate-allaround': { text: 'Intermediate Pick', color: 'var(--sky)' },
+    'intermediate-dinker': { text: 'Control Specialist', color: 'var(--sky)' },
+    'intermediate-banger': { text: 'Power Upgrade', color: 'var(--coral)' },
+    'advanced-allaround': { text: 'Pro All-Court', color: 'var(--ink)' },
+    'advanced-banger': { text: 'Pro Power', color: 'var(--coral)' },
+    'advanced-dinker': { text: 'Pro Touch', color: 'var(--ink)' }
+  };
+  return tags[level + '-' + style] || { text: 'Recommended', color: 'var(--ink-muted)' };
+}
+
 function showResults() {
   const results = scorePaddles();
   document.getElementById('results').style.display = 'block';
@@ -1353,6 +1441,7 @@ function showResults() {
 
   list.innerHTML = results.map((p, i) => {
     const matchPct = Math.min(99, Math.round((p.matchScore / 120) * 100));
+    const bestFor = getBestForTag(p);
     const buyButtons = `
       <a href="${p.shopee}" target="_blank" rel="noopener noreferrer sponsored"
          class="buy-btn primary" onclick="trackClick('${p.id}')">
@@ -1363,11 +1452,24 @@ function showResults() {
     return `
       <div class="paddle-card ${i === 0 ? 'top' : ''}" style="animation-delay: ${i * 0.12}s">
         <div class="rank-row">
-          <div class="rank-tag">${i === 0 ? '★ Top Match' : `#${i + 1} Match`}</div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <div class="rank-tag">${i === 0 ? '★ Top Match' : `#${i + 1} Match`}</div>
+            <span style="padding:5px 12px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:${bestFor.color};color:var(--cream);">${bestFor.text}</span>
+          </div>
           <div class="match-score">${matchPct}<span class="match-score-pct">%</span></div>
         </div>
+        ${p.image ? `
+          <div style="width:100%;height:160px;border-radius:12px;overflow:hidden;margin-bottom:16px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;">
+            <img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=\\'font-size:48px;\\'>🏓</span>'" loading="lazy">
+          </div>
+        ` : `
+          <div style="width:100%;height:100px;border-radius:12px;margin-bottom:16px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:48px;">🏓</span>
+          </div>
+        `}
         <div class="paddle-brand-tag">${p.brand}</div>
         <div class="paddle-name">${p.name}</div>
+        <div style="font-size:13px;color:var(--ink-muted);margin-bottom:18px;font-style:italic;">${getMatchReason(p, state.answers)}</div>
         <div class="scores-grid">
           ${['power','control','spin','arm'].map(k => `
             <div class="score-item">
@@ -1400,21 +1502,34 @@ function showResults() {
   document.getElementById('shareProfile').textContent = `${levelMap[state.answers.skill]} · ${styleWord}`;
   document.getElementById('sharePaddle').innerHTML = `My perfect match is the <span class="italic">${results[0].name}</span>.`;
 
-  // Render balls upsell
+  // Render upsell (balls, grips, bags)
   const upsellSection = document.getElementById('upsellSection');
   const upsellGrid = document.getElementById('upsellGrid');
   if (upsellSection && upsellGrid) {
     upsellSection.style.display = 'block';
-    upsellGrid.innerHTML = BALLS.map(b => `
-      <div class="upsell-card">
-        <div class="upsell-card-icon">🎾</div>
-        <div class="upsell-card-name">${b.name}</div>
-        <div class="upsell-card-desc">${b.desc}</div>
-        <div class="upsell-card-price">₱${b.price}</div>
-        <a href="${b.shopee}" target="_blank" rel="noopener noreferrer sponsored"
-           class="upsell-card-btn" onclick="trackClick('${b.id}')">
-          Shop on Shopee →
-        </a>
+    const upsellData = [
+      { title: 'Pickleballs', icon: '🎾', items: BALLS },
+      { title: 'Grips', icon: '🤝', items: GRIPS },
+      { title: 'Bags', icon: '🎒', items: BAGS }
+    ];
+    upsellGrid.innerHTML = upsellData.map(cat => `
+      <div style="margin-bottom:24px;">
+        <div style="font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:12px;">
+          ${cat.icon} ${cat.title}
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">
+          ${cat.items.map(item => `
+            <div class="upsell-card">
+              <div class="upsell-card-name">${item.name}</div>
+              <div class="upsell-card-desc">${item.desc}</div>
+              <div class="upsell-card-price">₱${item.price}</div>
+              <a href="${item.shopee}" target="_blank" rel="noopener noreferrer sponsored"
+                 class="upsell-card-btn" onclick="trackClick('${item.id}')">
+                Shop on Shopee →
+              </a>
+            </div>
+          `).join('')}
+        </div>
       </div>
     `).join('');
   }
@@ -1429,6 +1544,15 @@ function showResults() {
     });
     browseGrid.innerHTML = sorted.map(p => `
       <div class="browse-card">
+        ${p.image ? `
+          <div style="width:100%;height:100px;border-radius:10px;overflow:hidden;margin-bottom:10px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;">
+            <img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='🏓'" loading="lazy">
+          </div>
+        ` : `
+          <div style="width:100%;height:80px;border-radius:10px;margin-bottom:10px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:32px;">🏓</span>
+          </div>
+        `}
         <div class="browse-card-brand">${p.brand}</div>
         <div class="browse-card-name">${p.name}</div>
         <div class="browse-card-price">₱${p.price}</div>
