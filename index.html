@@ -852,6 +852,25 @@ main { position: relative; z-index: 2; }
 .upsell-card-btn { display: block; text-align: center; padding: 10px; background: var(--court); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 600; text-decoration: none; transition: all 0.2s; margin-top: auto; }
 .upsell-card-btn:hover { background: var(--coral); }
 
+/* COMPACT CARDS */
+.paddle-card.compact { padding: 20px; border-radius: 16px; }
+.results-compact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+@media (max-width: 500px) { .results-compact-row { grid-template-columns: 1fr; } }
+
+/* STARTER KIT */
+.starter-kit { margin-top: 40px; padding: 28px; background: var(--sun-soft); border: 1.5px solid var(--line); border-radius: 20px; }
+.starter-kit-items { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.starter-kit-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: var(--cream); border-radius: 12px; border: 1px solid var(--line); text-decoration: none; color: inherit; transition: all 0.2s; }
+.starter-kit-item:hover { border-color: var(--coral); }
+.starter-kit-item-left { display: flex; align-items: center; gap: 12px; }
+.starter-kit-item-emoji { font-size: 24px; }
+.starter-kit-item-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; }
+.starter-kit-item-desc { font-size: 12px; color: var(--ink-muted); }
+.starter-kit-item-price { font-family: var(--font-display); font-size: 1rem; font-weight: 600; white-space: nowrap; }
+.starter-kit-total { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1.5px dashed var(--line); }
+.starter-kit-total-label { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; }
+.starter-kit-total-price { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--coral); }
+
 /* ABOUT */
 .about-section { margin-top: 60px; padding-top: 48px; border-top: 1px solid var(--line); }
 .about-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--ink); }
@@ -936,7 +955,7 @@ main { position: relative; z-index: 2; }
         <span class="cta-arrow">→</span>
       </button>
       <div class="landing-meta">
-        <div class="meta-item"><div class="meta-num">22</div><div class="meta-label">PH paddles ranked</div></div>
+        <div class="meta-item"><div class="meta-num">26</div><div class="meta-label">PH paddles ranked</div></div>
         <div class="meta-item"><div class="meta-num">6</div><div class="meta-label">Questions</div></div>
         <div class="meta-item"><div class="meta-num">2m</div><div class="meta-label">Minutes</div></div>
       </div>
@@ -954,10 +973,20 @@ main { position: relative; z-index: 2; }
     <section class="results-section" id="results" aria-label="Your paddle recommendations">
       <div class="results-header">
         <div class="results-eyebrow">Your matches</div>
-        <h2 class="results-title">Three paddles, <span class="italic">made for you</span>.</h2>
+        <h2 class="results-title">Your top <span class="italic">5 matches</span></h2>
         <div class="player-chip" id="playerChip"></div>
       </div>
       <div id="paddleList"></div>
+
+      <div class="starter-kit" id="starterKit" style="display:none;">
+        <div class="starter-kit-header">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--coral);margin-bottom:8px;">Recommended Bundle</div>
+          <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:500;letter-spacing:-0.02em;margin-bottom:6px;">Your Starter Kit</h3>
+          <p style="font-size:14px;color:var(--ink-muted);margin-bottom:20px;">Everything you need to start playing, based on your quiz results.</p>
+        </div>
+        <div class="starter-kit-items" id="starterKitItems"></div>
+        <div class="starter-kit-total" id="starterKitTotal"></div>
+      </div>
 
       <div class="upsell-section" id="upsellSection" style="display:none;">
         <div class="upsell-divider"><span class="upsell-divider-text">Complete your setup</span></div>
@@ -997,7 +1026,7 @@ main { position: relative; z-index: 2; }
         <h3 class="browse-title">All Paddles</h3>
         <p class="browse-sub">Explore our full collection — sorted by price</p>
       </div>
-      <button class="browse-toggle" id="browseToggle" onclick="toggleBrowseAll()">Show All 22 Paddles ▼</button>
+      <button class="browse-toggle" id="browseToggle" onclick="toggleBrowseAll()">Show All Paddles ▼</button>
       <div class="browse-grid" id="browseGrid"></div>
     </section>
 
@@ -1038,7 +1067,7 @@ const PADDLES = [
   { id:'luzz-dart', name:'Luzz Dart Paddle', brand:'Luzz',
     scores:{power:78,control:80,spin:78,arm:84}, weight:'light',
     level:['beginner','intermediate'], style:['allaround'], priorities:['control'],
-    price:'2,484', shopee:'https://s.shopee.ph/gMBmvoYOQ', image:'assets/paddle-images/luzz_dart.png' },
+    price:'2,484', shopee:'https://s.shopee.ph/gMBmvoYOQ' },
 
   { id:'ianoni-14mm-power', name:'IANONI 14mm Power Paddle', brand:'IANONI',
     scores:{power:88,control:80,spin:84,arm:78}, weight:'medium',
@@ -1145,7 +1174,29 @@ const PADDLES = [
   { id:'placeholder-ultra-all-1', name:'Premium Allaround Paddle', brand:'TBD',
     scores:{power:86,control:88,spin:86,arm:82}, weight:'medium',
     level:['advanced'], style:['allaround'], priorities:['balance','spin'],
-    price:'9,500', shopee:'#', image:'' }
+    price:'9,500', shopee:'#', image:'' },
+
+  // --- High-end paddles (₱10k-₱20k range) ---
+
+  { id:'luzz-pro-set-4in1', name:'Luzz Pro 4-in-1 Premium Set', brand:'Luzz',
+    scores:{power:88,control:86,spin:86,arm:80}, weight:'medium',
+    level:['intermediate','advanced'], style:['allaround'], priorities:['balance','spin'],
+    price:'15,090', shopee:'#', image:'' },
+
+  { id:'luzz-carbon-pro-16', name:'Luzz Carbon Pro 16mm Control', brand:'Luzz',
+    scores:{power:82,control:92,spin:86,arm:82}, weight:'medium',
+    level:['advanced'], style:['dinker','allaround'], priorities:['control','spin'],
+    price:'16,690', shopee:'#', image:'' },
+
+  { id:'vatic-oni-pro', name:'Vatic Pro Oni 14mm', brand:'Vatic',
+    scores:{power:92,control:84,spin:90,arm:76}, weight:'medium',
+    level:['advanced'], style:['banger'], priorities:['power','spin'],
+    price:'12,500', shopee:'#', image:'' },
+
+  { id:'luzz-blade-pro-14', name:'Luzz Blade Pro Carbon 14mm', brand:'Luzz',
+    scores:{power:88,control:82,spin:92,arm:78}, weight:'medium',
+    level:['advanced'], style:['banger','allaround'], priorities:['spin','power'],
+    price:'11,500', shopee:'#', image:'' }
 ];
 
 const BALLS = [
@@ -1383,7 +1434,7 @@ function scorePaddles() {
     const sX = x.scores.power + x.scores.control + x.scores.spin + x.scores.arm;
     const sY = y.scores.power + y.scores.control + y.scores.spin + y.scores.arm;
     return sY - sX;
-  }).slice(0, 3);
+  }).slice(0, 5);
 }
 
 function showLoading() {
@@ -1450,7 +1501,8 @@ function showResults() {
 
   const list = document.getElementById('paddleList');
 
-  list.innerHTML = results.map((p, i) => {
+  // Cards #1-3: full version
+  const topCards = results.slice(0, 3).map((p, i) => {
     const matchPct = Math.min(99, Math.round((p.matchScore / 120) * 100));
     const bestFor = getBestForTag(p);
     const buyButtons = `
@@ -1459,7 +1511,6 @@ function showResults() {
         <span>Shop on Shopee</span><span>→</span>
       </a>
     `;
-
     return `
       <div class="paddle-card ${i === 0 ? 'top' : ''}" style="animation-delay: ${i * 0.12}s">
         <div class="rank-row">
@@ -1503,6 +1554,35 @@ function showResults() {
     `;
   }).join('');
 
+  // Cards #4-5: compact version
+  const compactCards = results.slice(3, 5).map((p, i) => {
+    const idx = i + 3;
+    const matchPct = Math.min(99, Math.round((p.matchScore / 120) * 100));
+    const buyButtons = `
+      <a href="${p.shopee}" target="_blank" rel="noopener noreferrer sponsored"
+         class="buy-btn primary" onclick="trackClick('${p.id}')">
+        <span>Shop on Shopee</span><span>→</span>
+      </a>
+    `;
+    return `
+      <div class="paddle-card compact" style="animation-delay: ${idx * 0.12}s">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span class="rank-tag">#${idx + 1} Match</span>
+          <span style="font-family:var(--font-display);font-size:1.3rem;font-weight:500;font-style:italic;color:var(--coral);">${matchPct}%</span>
+        </div>
+        <div class="paddle-brand-tag">${p.brand}</div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:8px;">${p.name}</div>
+        <div style="font-size:13px;color:var(--ink-muted);margin-bottom:12px;font-style:italic;">${getMatchReason(p, state.answers)}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
+          <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:500;">₱${p.price}</div>
+          ${buyButtons}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  list.innerHTML = topCards + (compactCards ? `<div class="results-compact-row">${compactCards}</div>` : '');
+
   setTimeout(() => {
     document.querySelectorAll('.score-fill').forEach(bar => {
       bar.style.transform = `scaleX(${bar.dataset.w / 100})`;
@@ -1512,6 +1592,38 @@ function showResults() {
   const styleWord = {banger:'Power Banger',dinker:'Soft Game Specialist',allaround:'All-Around Player'}[state.answers.style];
   document.getElementById('shareProfile').textContent = `${levelMap[state.answers.skill]} · ${styleWord}`;
   document.getElementById('sharePaddle').innerHTML = `My perfect match is the <span class="italic">${results[0].name}</span>.`;
+
+  // Render Starter Kit
+  const starterKit = document.getElementById('starterKit');
+  const starterItems = document.getElementById('starterKitItems');
+  const starterTotal = document.getElementById('starterKitTotal');
+  if (starterKit && starterItems && starterTotal) {
+    const topPaddle = results[0];
+    const kit = [
+      { emoji:'🏓', name:topPaddle.name, desc:'Your #1 matched paddle', price:topPaddle.price, link:topPaddle.shopee },
+      { emoji:'🎾', name:BALLS[0].name, desc:'Outdoor pickleballs', price:BALLS[0].price, link:BALLS[0].shopee },
+      { emoji:'🤝', name:GRIPS[0].name, desc:'Better grip and comfort', price:GRIPS[0].price, link:GRIPS[0].shopee }
+    ];
+    if (BAGS.length > 0) kit.push({ emoji:'🎒', name:BAGS[0].name, desc:'Protect your paddle', price:BAGS[0].price, link:BAGS[0].shopee });
+    const total = kit.reduce((sum, item) => sum + parseInt(item.price.replace(/[,.]/g, '')), 0);
+    starterItems.innerHTML = kit.map(item => `
+      <a href="${item.link}" target="_blank" rel="noopener noreferrer sponsored" class="starter-kit-item" onclick="trackClick('starter-kit')">
+        <div class="starter-kit-item-left">
+          <span class="starter-kit-item-emoji">${item.emoji}</span>
+          <div>
+            <div class="starter-kit-item-name">${item.name}</div>
+            <div class="starter-kit-item-desc">${item.desc}</div>
+          </div>
+        </div>
+        <div class="starter-kit-item-price">₱${item.price}</div>
+      </a>
+    `).join('');
+    starterTotal.innerHTML = `
+      <div class="starter-kit-total-label">Complete Kit Total</div>
+      <div class="starter-kit-total-price">₱${total.toLocaleString()}</div>
+    `;
+    starterKit.style.display = 'block';
+  }
 
   // Render upsell (balls, grips, bags)
   const upsellSection = document.getElementById('upsellSection');
@@ -1589,12 +1701,14 @@ function toggleBrowseAll() {
   const grid = document.getElementById('browseGrid');
   const btn = document.getElementById('browseToggle');
   grid.classList.toggle('expanded');
-  btn.textContent = grid.classList.contains('expanded') ? 'Hide Paddles ▲' : 'Show All 22 Paddles ▼';
+  btn.textContent = grid.classList.contains('expanded') ? 'Hide Paddles ▲' : `Show All ${PADDLES.length} Paddles ▼`;
 }
 
 function renderBrowseAll() {
   const browseGrid = document.getElementById('browseGrid');
   if (!browseGrid) return;
+  const browseToggle = document.getElementById('browseToggle');
+  if (browseToggle) browseToggle.textContent = `Show All ${PADDLES.length} Paddles ▼`;
   const sorted = [...PADDLES].sort((a, b) =>
     parseInt(a.price.replace(/[,.]/g, '')) - parseInt(b.price.replace(/[,.]/g, ''))
   );
