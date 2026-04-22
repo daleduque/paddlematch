@@ -14,6 +14,8 @@
 <meta property="og:description" content="Free quiz + curated pickleball gear on Shopee Philippines — paddles, balls, and more.">
 <meta property="og:locale" content="en_PH">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://paddlematch.ph/">
+<meta name="apple-mobile-web-app-title" content="PaddleMatch PH">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏓</text></svg>">
 <link rel="canonical" href="https://paddlematch.ph/">
@@ -28,12 +30,12 @@
       "name": "How do I choose the right pickleball paddle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Take our free 2-minute quiz! We match you based on skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores 15+ paddles available on Shopee Philippines to find your top 3 matches."
+        "text": "Take our free 2-minute quiz! We match you based on skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores 20+ paddles available on Shopee Philippines to find your top 3 matches."
       }
     },
     {
       "@type": "Question",
-      "name": "What's the difference between a beginner and advanced paddle?",
+      "name": "What's the difference between a beginner and advanced pickleball paddle?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Beginner paddles (under ₱2,500) are lighter, more forgiving, and prioritize control. Advanced paddles (₱6,000+) use specialized materials like carbon fiber for more power, spin, and precision."
@@ -52,12 +54,12 @@
       "name": "Do I need special shoes for pickleball?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Court shoes with good lateral support are strongly recommended. Running shoes lack the side-to-side stability needed for pickleball's quick movements. Dedicated court shoes or badminton shoes are great alternatives available on Shopee."
+        "text": "Court shoes with good lateral support are strongly recommended. Running shoes lack the side-to-side stability needed for pickleball. Dedicated court shoes or badminton shoes are great alternatives available on Shopee Philippines."
       }
     },
     {
       "@type": "Question",
-      "name": "What's the best pickleball ball for outdoor play?",
+      "name": "What's the best pickleball ball for outdoor play in the Philippines?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Outdoor pickleballs have smaller, more numerous holes and are made of harder plastic to handle wind. Look for USAPA-approved outdoor balls for consistent bounce and durability on concrete or asphalt courts."
@@ -65,13 +67,23 @@
     },
     {
       "@type": "Question",
-      "name": "How much should I spend on my first paddle?",
+      "name": "How much should I spend on my first pickleball paddle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For beginners, ₱1,000–₱2,500 is a great starting range. These paddles offer good control and forgiveness while you develop your technique. Upgrade to a ₱3,000–₱6,000 paddle once you know your playstyle."
+        "text": "For beginners, ₱1,000 to ₱2,500 is a great starting range. These paddles offer good control and forgiveness while you develop your technique. Upgrade to a ₱3,000 to ₱6,000 paddle once you know your playstyle."
       }
     }
   ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PaddleMatch PH",
+  "url": "https://paddlematch.ph",
+  "description": "Find your perfect pickleball paddle with our free recommendation quiz. All products available on Shopee Philippines."
 }
 </script>
 
@@ -85,6 +97,8 @@
 </script>
 -->
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600;1,9..144,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
 <style>
@@ -835,6 +849,12 @@ main { position: relative; z-index: 2; }
 .upsell-card-btn { display: block; text-align: center; padding: 10px; background: var(--court); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 600; text-decoration: none; transition: all 0.2s; margin-top: auto; }
 .upsell-card-btn:hover { background: var(--coral); }
 
+/* ABOUT */
+.about-section { margin-top: 60px; padding-top: 48px; border-top: 1px solid var(--line); }
+.about-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--ink); }
+.about-content p { font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 14px; }
+.about-content strong { color: var(--ink); font-weight: 600; }
+
 /* FAQ */
 .faq-section { margin-top: 60px; padding-top: 48px; border-top: 1px solid var(--line); padding-bottom: 60px; }
 .faq-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--coral); margin-bottom: 8px; }
@@ -919,7 +939,7 @@ main { position: relative; z-index: 2; }
       </div>
     </section>
 
-    <section class="quiz-section" id="quiz">
+    <section class="quiz-section" id="quiz" aria-label="Paddle recommendation quiz">
       <div class="progress-bar" id="progressBar"></div>
       <div id="questionSlot"></div>
       <div class="quiz-nav">
@@ -928,7 +948,7 @@ main { position: relative; z-index: 2; }
       </div>
     </section>
 
-    <section class="results-section" id="results">
+    <section class="results-section" id="results" aria-label="Your paddle recommendations">
       <div class="results-header">
         <div class="results-eyebrow">Your matches</div>
         <h2 class="results-title">Three paddles, <span class="italic">made for you</span>.</h2>
@@ -957,45 +977,24 @@ main { position: relative; z-index: 2; }
         <button class="retake" onclick="retakeQuiz()">↻ Retake the quiz</button>
       </div>
 
-      <div class="browse-all" id="browseAll">
-        <div class="browse-header">
-          <div class="browse-eyebrow">Browse</div>
-          <h3 class="browse-title">All Paddles</h3>
-          <p class="browse-sub">Explore our full collection — sorted by price</p>
-        </div>
-        <div class="browse-grid" id="browseGrid"></div>
+    </section>
+
+    <section class="about-section" id="aboutSection">
+      <div class="about-content">
+        <h2 class="about-title">The Philippines' First Pickleball Paddle Finder</h2>
+        <p>PaddleMatch PH helps Filipino pickleball players find the perfect paddle without the guesswork. Whether you're a complete beginner looking for your first paddle, an intermediate player upgrading your game, or an advanced competitor seeking tournament-ready equipment — our recommendation quiz matches you with the best options available on Shopee Philippines.</p>
+        <p>We analyze your skill level, playstyle (banger, dinker, or all-around), arm comfort needs, weight preference, and budget to score over 20 paddles from brands like <strong>Luzz</strong>, <strong>Vatic Pro</strong>, <strong>Kawasaki</strong>, <strong>IANONI</strong>, <strong>Black Knight</strong>, <strong>Wilson</strong>, <strong>SLK</strong>, and <strong>Kingsver</strong>. Every paddle links directly to Shopee Philippines with real prices — from budget-friendly options under ₱2,500 to premium paddles above ₱8,500.</p>
+        <p>Pickleball is the fastest-growing sport in the Philippines, with courts now available in BGC, Makati, Quezon City, Alabang, Cebu, and more. Finding the right paddle is the most important equipment decision you'll make — and we're here to make it easy, free, and fast.</p>
       </div>
     </section>
 
-    <section class="seo-content" id="seoContent" style="padding:60px 0 80px;">
-      <div style="border-top:1px solid var(--line);padding-top:48px;">
-        <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:400;letter-spacing:-0.03em;margin-bottom:24px;line-height:1.1;">
-          The best pickleball paddles<br>in the <span style="font-style:italic;font-weight:500;color:var(--coral);">Philippines</span>
-        </h2>
-        <div style="display:grid;gap:20px;font-size:0.95rem;line-height:1.6;color:var(--ink-soft);max-width:600px;">
-          <p>
-            Whether you're a <strong>beginner looking for your first paddle</strong> or an <strong>advanced tournament player</strong> chasing more spin, our quiz matches you with the right pickleball paddle available on Shopee Philippines — from budget-friendly options under ₱2,500 to premium paddles above ₱8,500.
-          </p>
-          <p>
-            We rank paddles from brands like <strong>Luzz, Vatic, Kawasaki, IANONI, SLK, Wilson,</strong> and <strong>Black Knight</strong> across four key stats: power, control, spin, and arm-friendliness. Your answers about skill level, play style, arm health, weight preference, and budget determine your top 3 matches.
-          </p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:8px;">
-            <div style="padding:16px;background:var(--cream-deep);border-radius:14px;">
-              <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:500;font-style:italic;color:var(--coral);line-height:1;">₱979</div>
-              <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:4px;">Starting from</div>
-            </div>
-            <div style="padding:16px;background:var(--cream-deep);border-radius:14px;">
-              <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:500;font-style:italic;color:var(--coral);line-height:1;">22</div>
-              <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:4px;">Paddles ranked</div>
-            </div>
-            <div style="padding:16px;background:var(--cream-deep);border-radius:14px;">
-              <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:500;font-style:italic;color:var(--coral);line-height:1;">7</div>
-              <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:4px;">Brands compared</div>
-            </div>
-          </div>
-        </div>
-
+    <section class="browse-all" id="browseAll">
+      <div class="browse-header">
+        <div class="browse-eyebrow">Browse</div>
+        <h3 class="browse-title">All Paddles</h3>
+        <p class="browse-sub">Explore our full collection — sorted by price</p>
       </div>
+      <div class="browse-grid" id="browseGrid"></div>
     </section>
 
     <div class="faq-section">
@@ -1011,7 +1010,7 @@ main { position: relative; z-index: 2; }
 
 <footer style="text-align:center;padding:32px 20px 48px;font-size:12px;color:var(--ink-faint);position:relative;z-index:2;">
   <p>PaddleMatch PH — Your Pickleball Gear Guide 🏓</p>
-  <p style="margin-top:6px;">We earn a small commission when you shop through our Shopee links. This helps us keep the site free.</p>
+  <!-- <p style="margin-top:6px;">We earn a small commission when you shop through our Shopee links. This helps us keep the site free.</p> -->
   <p style="margin-top:6px;">© 2026 PaddleMatch. Not affiliated with any paddle brand.</p>
 </footer>
 
@@ -1177,17 +1176,17 @@ const BAGS = [
 
 const FAQS = [
   { q:'How do I choose the right pickleball paddle?',
-    a:'Take our free 2-minute quiz above! We match you based on your skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores 15+ paddles available on Shopee Philippines to find your top 3 matches.' },
-  { q:"What's the difference between a beginner and advanced paddle?",
+    a:'Take our free 2-minute quiz above! We match you based on your skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores 20+ paddles available on Shopee Philippines to find your top 3 matches.' },
+  { q:"What's the difference between a beginner and advanced pickleball paddle?",
     a:'Beginner paddles (under ₱2,500) are lighter, more forgiving, and prioritize control. Advanced paddles (₱6,000+) use specialized materials like carbon fiber for more power, spin, and precision — but require better technique to get the most out of them.' },
   { q:'Where can I buy pickleball gear in the Philippines?',
     a:'All our recommended products are available on Shopee Philippines with nationwide delivery. We compare options and link directly to trusted Shopee Mall sellers so you get authentic gear with buyer protection.' },
   { q:'Do I need special shoes for pickleball?',
-    a:"Court shoes with good lateral support are strongly recommended. Running shoes lack the side-to-side stability needed for pickleball's quick movements. Dedicated court shoes or badminton shoes are great alternatives available on Shopee." },
-  { q:"What's the best pickleball ball for outdoor play?",
+    a:"Court shoes with good lateral support are strongly recommended. Running shoes lack the side-to-side stability needed for pickleball. Dedicated court shoes or badminton shoes are great alternatives available on Shopee Philippines." },
+  { q:"What's the best pickleball ball for outdoor play in the Philippines?",
     a:'Outdoor pickleballs have smaller, more numerous holes and are made of harder plastic to handle wind. Look for USAPA-approved outdoor balls for consistent bounce and durability on concrete or asphalt courts.' },
-  { q:'How much should I spend on my first paddle?',
-    a:'For beginners, ₱1,000–₱2,500 is a great starting range. These paddles offer good control and forgiveness while you develop your technique. Upgrade to a ₱3,000–₱6,000 paddle once you know your playstyle and want more performance.' }
+  { q:'How much should I spend on my first pickleball paddle?',
+    a:'For beginners, ₱1,000 to ₱2,500 is a great starting range. These paddles offer good control and forgiveness while you develop your technique. Upgrade to a ₱3,000 to ₱6,000 paddle once you know your playstyle and want more performance.' }
 ];
 
 const QUESTIONS = [
@@ -1542,36 +1541,6 @@ function showResults() {
     `).join('');
   }
 
-  // Render Browse All Paddles grid
-  const browseGrid = document.getElementById('browseGrid');
-  if (browseGrid) {
-    const sorted = [...PADDLES].sort((a, b) => {
-      const priceA = parseInt(a.price.replace(/[,.]/g, ''));
-      const priceB = parseInt(b.price.replace(/[,.]/g, ''));
-      return priceA - priceB;
-    });
-    browseGrid.innerHTML = sorted.map(p => `
-      <div class="browse-card">
-        ${p.image ? `
-          <div style="width:100%;height:90px;border-radius:12px;overflow:hidden;margin-bottom:10px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;border:1px solid var(--line);padding:8px;">
-            <img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='🏓'" loading="lazy">
-          </div>
-        ` : `
-          <div style="width:100%;height:64px;border-radius:12px;margin-bottom:10px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;border:1px solid var(--line);">
-            <span style="font-size:28px;">🏓</span>
-          </div>
-        `}
-        <div class="browse-card-brand">${p.brand}</div>
-        <div class="browse-card-name">${p.name}</div>
-        <div class="browse-card-price">₱${p.price}</div>
-        <a href="${p.shopee}" target="_blank" rel="noopener noreferrer sponsored"
-           class="browse-card-btn" onclick="trackClick('${p.id}')">
-          Shop on Shopee →
-        </a>
-      </div>
-    `).join('');
-  }
-
   renderFAQ();
 }
 
@@ -1612,6 +1581,51 @@ function trackClick(paddleId) {
   // }
 }
 
+function renderBrowseAll() {
+  const browseGrid = document.getElementById('browseGrid');
+  if (!browseGrid) return;
+  const sorted = [...PADDLES].sort((a, b) =>
+    parseInt(a.price.replace(/[,.]/g, '')) - parseInt(b.price.replace(/[,.]/g, ''))
+  );
+  const tiers = [
+    { key:'low', label:'Budget Paddles — Under ₱2,500', emoji:'💰' },
+    { key:'mid', label:'Mid-Range Paddles — ₱2,500 to ₱5,000', emoji:'💎' },
+    { key:'high', label:'Premium Paddles — ₱5,000 to ₱8,500', emoji:'👑' },
+    { key:'ultra', label:'Super Premium Paddles — ₱8,500+', emoji:'💠' }
+  ];
+  browseGrid.innerHTML = tiers.map(tier => {
+    const tierPaddles = sorted.filter(p => getBudgetTier(p.price) === tier.key);
+    if (!tierPaddles.length) return '';
+    return `
+      <div style="grid-column:1/-1;margin-top:${tier.key === 'low' ? '0' : '24px'};">
+        <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:14px;color:var(--ink);">
+          ${tier.emoji} ${tier.label}
+        </h4>
+      </div>
+      ${tierPaddles.map(p => `
+        <div class="browse-card">
+          ${p.image ? `
+            <div style="width:100%;height:90px;border-radius:12px;overflow:hidden;margin-bottom:10px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;border:1px solid var(--line);padding:8px;">
+              <img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='🏓'" loading="lazy">
+            </div>
+          ` : `
+            <div style="width:100%;height:64px;border-radius:12px;margin-bottom:10px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;border:1px solid var(--line);">
+              <span style="font-size:28px;">🏓</span>
+            </div>
+          `}
+          <div class="browse-card-brand">${p.brand}</div>
+          <div class="browse-card-name">${p.name}</div>
+          <div class="browse-card-price">₱${p.price}</div>
+          <a href="${p.shopee}" target="_blank" rel="noopener noreferrer sponsored"
+             class="browse-card-btn" onclick="trackClick('${p.id}')">
+            Shop on Shopee →
+          </a>
+        </div>
+      `).join('')}
+    `;
+  }).join('');
+}
+
 function renderFAQ() {
   const list = document.getElementById('faqList');
   if (!list) return;
@@ -1636,6 +1650,7 @@ function init() {
     if (window.scrollY > 10) n.classList.add('scrolled');
     else n.classList.remove('scrolled');
   });
+  renderBrowseAll();
   renderFAQ();
 }
 init();
