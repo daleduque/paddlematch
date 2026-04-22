@@ -841,14 +841,18 @@ main { position: relative; z-index: 2; }
 .upsell-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px; }
 .upsell-divider::before, .upsell-divider::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: var(--line); }
 .upsell-divider-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; font-style: italic; color: var(--coral); }
-.upsell-sub { text-align: center; color: var(--ink-muted); font-size: 14px; margin-bottom: 24px; }
-.upsell-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-.upsell-card { background: var(--court-soft); border: 1.5px solid var(--line); border-radius: 16px; padding: 20px; transition: all 0.2s; display: flex; flex-direction: column; }
+.upsell-sub { text-align: center; color: var(--ink-muted); font-size: 14px; margin-bottom: 32px; }
+.upsell-category { margin-bottom: 28px; }
+.upsell-category-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.upsell-category-icon { font-size: 20px; }
+.upsell-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; align-items: stretch; }
+.upsell-card { background: var(--court-soft); border: 1.5px solid var(--line); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; transition: all 0.2s; }
 .upsell-card:hover { border-color: var(--ink); box-shadow: 4px 4px 0 var(--ink); transform: translate(-2px,-2px); }
-.upsell-card-icon { font-size: 28px; margin-bottom: 10px; }
-.upsell-card-name { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.4em; }
-.upsell-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.4; margin-bottom: 12px; flex: 1; min-height: 3em; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.upsell-card-price { font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; margin-bottom: 12px; }
+.upsell-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.upsell-card-icon { font-size: 28px; line-height: 1; }
+.upsell-card-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.4em; }
+.upsell-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.4; margin-bottom: 12px; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.8em; }
+.upsell-card-price { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; color: var(--ink); }
 .upsell-card-btn { display: block; text-align: center; padding: 10px; background: var(--court); color: var(--cream); border-radius: 100px; font-size: 12px; font-weight: 600; text-decoration: none; transition: all 0.2s; margin-top: auto; }
 .upsell-card-btn:hover { background: var(--coral); }
 
@@ -891,7 +895,6 @@ main { position: relative; z-index: 2; }
 
 @media (min-width: 640px) {
   .browse-grid { grid-template-columns: 1fr 1fr 1fr; }
-  .upsell-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
@@ -991,7 +994,7 @@ main { position: relative; z-index: 2; }
       <div class="upsell-section" id="upsellSection" style="display:none;">
         <div class="upsell-divider"><span class="upsell-divider-text">Complete your setup</span></div>
         <p class="upsell-sub">Got your paddle? You'll need these too.</p>
-        <div class="upsell-grid" id="upsellGrid"></div>
+        <div id="upsellGrid"></div>
       </div>
 
       <div class="share-section">
@@ -1202,31 +1205,31 @@ const PADDLES = [
 const BALLS = [
   { id:'ball-outdoor-1', name:'ProSwing Outdoor Pickleball (6-Pack)', brand:'ProSwing',
     desc:'Durable 40-hole design for outdoor courts. Wind-resistant.',
-    price:'272', shopee:'https://s.shopee.ph/40clhMqowE' },
+    price:'272', shopee:'https://s.shopee.ph/40clhMqowE', icon:'🏐' },
   { id:'ball-indoor-1', name:'Incepai Indoor Pickleball (6-Pack)', brand:'INCEPAI',
     desc:'Softer 26-hole design for indoor courts. Quieter bounce.',
-    price:'462', shopee:'https://s.shopee.ph/8ASKf4e98D' },
+    price:'462', shopee:'https://s.shopee.ph/8ASKf4e98D', icon:'🟡' },
   { id:'ball-pro-1', name:'Renji Pro Tournament Balls (12-Pack)', brand:'Renji Pro',
     desc:'USAPA-approved for competitive play. Consistent bounce.',
-    price:'582', shopee:'https://s.shopee.ph/8fObFpB0GT' }
+    price:'582', shopee:'https://s.shopee.ph/8fObFpB0GT', icon:'🏆' }
 ];
 
 const GRIPS = [
   { id:'grip-1', name:'Overgrip 3-Pack', brand:'Placeholder',
     desc:'Sweat-absorbing tacky grip for better paddle control.',
-    price:'299', shopee:'#' },
+    price:'299', shopee:'#', icon:'✊' },
   { id:'grip-2', name:'Cushion Replacement Grip', brand:'Placeholder',
     desc:'Thick padded grip for arm comfort and shock absorption.',
-    price:'399', shopee:'#' }
+    price:'399', shopee:'#', icon:'🤲' }
 ];
 
 const BAGS = [
   { id:'bag-1', name:'Paddle Sling Bag', brand:'Placeholder',
     desc:'Fits 1-2 paddles + balls. Lightweight for casual play.',
-    price:'799', shopee:'#' },
+    price:'799', shopee:'#', icon:'👜' },
   { id:'bag-2', name:'Pickleball Backpack', brand:'Placeholder',
     desc:'Fits 2-4 paddles, shoes, water bottle. Padded compartments.',
-    price:'1,899', shopee:'#' }
+    price:'1,899', shopee:'#', icon:'🎒' }
 ];
 
 const FAQS = [
@@ -1630,20 +1633,24 @@ function showResults() {
   const upsellGrid = document.getElementById('upsellGrid');
   if (upsellSection && upsellGrid) {
     upsellSection.style.display = 'block';
-    const upsellData = [
-      { title: 'Pickleballs', icon: '🎾', items: BALLS },
-      { title: 'Grips', icon: '🤝', items: GRIPS },
-      { title: 'Bags', icon: '🎒', items: BAGS }
+    const categories = [
+      { title:'Pickleballs', icon:'🏓', items:BALLS },
+      { title:'Grips', icon:'✊', items:GRIPS },
+      { title:'Bags', icon:'🎒', items:BAGS }
     ];
-    upsellGrid.innerHTML = upsellData.map(cat => `
-      <div style="margin-bottom:24px;">
-        <div style="font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:12px;">
-          ${cat.icon} ${cat.title}
+    upsellGrid.innerHTML = categories.map(cat => `
+      <div class="upsell-category">
+        <div class="upsell-category-title">
+          <span class="upsell-category-icon">${cat.icon}</span>
+          ${cat.title}
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;align-items:stretch;">
+        <div class="upsell-row">
           ${cat.items.map(item => `
             <div class="upsell-card">
-              <div class="upsell-card-name">${item.name}</div>
+              <div class="upsell-card-header">
+                <span class="upsell-card-icon">${item.icon || '📦'}</span>
+                <div class="upsell-card-name">${item.name}</div>
+              </div>
               <div class="upsell-card-desc">${item.desc}</div>
               <div class="upsell-card-price">₱${item.price}</div>
               <a href="${item.shopee}" target="_blank" rel="noopener noreferrer sponsored"
