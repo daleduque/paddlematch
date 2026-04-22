@@ -15,6 +15,14 @@
 <meta property="og:locale" content="en_PH">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://paddlematch.ph/">
+<meta property="og:image" content="https://paddlematch.ph/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PaddleMatch PH — Find Your Perfect Pickleball Paddle">
+<meta name="twitter:description" content="Free 2-minute quiz matches you with the best pickleball paddle on Shopee Philippines.">
+<meta name="twitter:image" content="https://paddlematch.ph/og-image.png">
 <meta name="apple-mobile-web-app-title" content="PaddleMatch PH">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏓</text></svg>">
@@ -30,7 +38,7 @@
       "name": "How do I choose the right pickleball paddle in the Philippines?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Take our free 2-minute quiz at PaddleMatch PH. We match you based on your skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores over 20 paddles available on Shopee Philippines to find your top 3 matches."
+        "text": "Take our free 2-minute quiz at PaddleMatch PH. We match you based on your skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores over 30 paddles available on Shopee Philippines to find your top 5 matches."
       }
     },
     {
@@ -951,14 +959,14 @@ main { position: relative; z-index: 2; }
         paddle <span class="pop">match</span>.
       </h1>
       <p class="hero-sub">
-        Answer six questions. Our algorithm weighs <span class="emphasis">skill, style, and body</span> against paddles available on Shopee Philippines — and tells you the three that will love your game back.
+        Answer six questions. Our algorithm weighs <span class="emphasis">skill, style, and body</span> against paddles available on Shopee Philippines — and tells you the five that will love your game back.
       </p>
       <button class="cta-primary" onclick="startQuiz()">
         <span>Start the quiz</span>
         <span class="cta-arrow">→</span>
       </button>
       <div class="landing-meta">
-        <div class="meta-item"><div class="meta-num">26</div><div class="meta-label">PH paddles ranked</div></div>
+        <div class="meta-item"><div class="meta-num" id="paddleCountHero">33</div><div class="meta-label">PH paddles ranked</div></div>
         <div class="meta-item"><div class="meta-num">6</div><div class="meta-label">Questions</div></div>
         <div class="meta-item"><div class="meta-num">2m</div><div class="meta-label">Minutes</div></div>
       </div>
@@ -1018,7 +1026,7 @@ main { position: relative; z-index: 2; }
       <div class="about-content">
         <h2 class="about-title">The Philippines' First Pickleball Paddle Finder</h2>
         <p>PaddleMatch PH helps Filipino pickleball players find the perfect paddle without the guesswork. Whether you're a complete beginner looking for your first paddle, an intermediate player upgrading your game, or an advanced competitor seeking tournament-ready equipment — our recommendation quiz matches you with the best options available on Shopee Philippines.</p>
-        <p>We analyze your skill level, playstyle (banger, dinker, or all-around), arm comfort needs, weight preference, and budget to score over 20 paddles from brands like <strong>Luzz</strong>, <strong>Vatic Pro</strong>, <strong>Kawasaki</strong>, <strong>IANONI</strong>, <strong>Black Knight</strong>, <strong>Wilson</strong>, <strong>SLK</strong>, and <strong>Kingsver</strong>. Every paddle links directly to Shopee Philippines with real prices — from budget-friendly options under ₱2,500 to premium paddles above ₱8,500.</p>
+        <p>We analyze your skill level, playstyle (banger, dinker, or all-around), arm comfort needs, weight preference, and budget to score over 30 paddles from brands like <strong>Luzz</strong>, <strong>Vatic Pro</strong>, <strong>Wilson</strong>, <strong>Kawasaki</strong>, <strong>IANONI</strong>, <strong>SLK</strong>, <strong>JOOLA</strong>, <strong>Selkirk</strong>, <strong>Six Zero</strong>, <strong>Black Knight</strong>, <strong>Enflexy</strong>, <strong>TIMPARC</strong>, <strong>JUCIAO</strong>, <strong>Kingsver</strong>, and <strong>IMTUU</strong>. Every paddle links directly to Shopee Philippines with real prices — from budget-friendly options under ₱2,500 to premium paddles above ₱8,500.</p>
         <p>Pickleball is the fastest-growing sport in the Philippines, with courts now available in BGC, Makati, Quezon City, Alabang, Cebu, and more. Finding the right paddle is the most important equipment decision you'll make — and we're here to make it easy, free, and fast.</p>
       </div>
     </section>
@@ -1143,63 +1151,83 @@ const PADDLES = [
     price:'13,449', shopee:'https://s.shopee.ph/7fVwmfjzWi' },
 
   // --- Placeholder paddles to fill coverage gaps (replace with real Shopee products) ---
-
-  { id:'placeholder-beginner-power-1', name:'Budget Power Paddle', brand:'TBD',
-    scores:{power:78,control:72,spin:70,arm:82}, weight:'medium',
-    level:['beginner'], style:['banger'], priorities:['power'],
-    price:'1,500', shopee:'#', image:'' },
-
-  { id:'placeholder-beginner-all-1', name:'Budget Allaround Paddle', brand:'TBD',
-    scores:{power:70,control:78,spin:72,arm:86}, weight:'light',
-    level:['beginner'], style:['allaround'], priorities:['balance'],
-    price:'1,200', shopee:'#', image:'' },
-
-  { id:'placeholder-beginner-dinker-1', name:'Budget Control Paddle', brand:'TBD',
-    scores:{power:68,control:82,spin:70,arm:88}, weight:'light',
-    level:['beginner'], style:['dinker'], priorities:['control'],
-    price:'999', shopee:'#', image:'' },
-
-  { id:'placeholder-mid-dinker-1', name:'Mid Control Paddle', brand:'TBD',
-    scores:{power:76,control:86,spin:78,arm:84}, weight:'light',
-    level:['intermediate'], style:['dinker'], priorities:['control'],
-    price:'3,500', shopee:'#', image:'' },
-
-  { id:'placeholder-mid-banger-1', name:'Mid Power Paddle', brand:'TBD',
+ 
+  { id:'mid-banger-2', name:'Enflexy Mjolnir T700 Carbon Paddle (Power & Spin)', brand:'Enflexy',
     scores:{power:86,control:80,spin:82,arm:78}, weight:'medium',
     level:['intermediate'], style:['banger'], priorities:['power','spin'],
-    price:'4,200', shopee:'#', image:'' },
+    price:'3,772-3,806', shopee:'https://s.shopee.ph/2LUYms7oIw', image:'' },
 
-  { id:'placeholder-high-dinker-1', name:'Premium Control Paddle', brand:'TBD',
-    scores:{power:80,control:90,spin:84,arm:84}, weight:'medium',
+  { id:'mid-dinker-2', name:'JOOLA Perseus 3S Carbon Paddle (Control & Spin)', brand:'JOOLA',
+    scores:{power:76,control:86,spin:84,arm:84}, weight:'medium',
+    level:['intermediate'], style:['dinker'], priorities:['control','spin'],
+    price:'2,999', shopee:'https://s.shopee.ph/50VJxpLOwu', image:'' },
+
+  { id:'high-dinker-2', name:'Six Zero Quartz 15mm Carbon Paddle (Control & Spin)', brand:'Six Zero',
+    scores:{power:80,control:90,spin:86,arm:84}, weight:'medium',
     level:['intermediate','advanced'], style:['dinker'], priorities:['control','spin'],
-    price:'6,800', shopee:'#', image:'' },
+    price:'5,995', shopee:'https://s.shopee.ph/3B3fmfrRjx', image:'' },
 
-  { id:'placeholder-ultra-all-1', name:'Premium Allaround Paddle', brand:'TBD',
-    scores:{power:86,control:88,spin:86,arm:82}, weight:'medium',
+  { id:'mid-dinker-3', name:'Selkirk Boomstik 16mm Carbon Paddle (Control & Comfort)', brand:'Selkirk',
+    scores:{power:74,control:88,spin:80,arm:88}, weight:'medium',
+    level:['intermediate'], style:['dinker'], priorities:['control'],
+    price:'1,518-2,752', shopee:'https://s.shopee.ph/1VvRne326r', image:'' },
+
+  { id:'mid-banger-3', name:'TIMPARC Falcon 16mm Thermoformed Paddle (Power & Spin)', brand:'TIMPARC',
+    scores:{power:86,control:80,spin:84,arm:78}, weight:'medium',
+    level:['intermediate'], style:['banger'], priorities:['power','spin'],
+    price:'2,419-4,646', shopee:'https://s.shopee.ph/8V5C8Xs0TY', image:'' },
+
+  { id:'mid-all-2', name:'Luzz Minions 16mm Carbon Paddle (Allaround & Control)', brand:'Luzz',
+    scores:{power:78,control:84,spin:80,arm:86}, weight:'medium',
+    level:['intermediate'], style:['allaround'], priorities:['balance'],
+    price:'3,786', shopee:'https://s.shopee.ph/3LN5zjkxNB', image:'' },
+
+  { id:'mid-dinker-4', name:'Luzz Pink 16mm Carbon Paddle (Control & Comfort)', brand:'Luzz',
+    scores:{power:74,control:86,spin:80,arm:88}, weight:'medium',
+    level:['intermediate'], style:['dinker'], priorities:['control'],
+    price:'2,655', shopee:'https://s.shopee.ph/6fdXxp1aza', image:'' },
+
+  { id:'mid-banger-4', name:'Selkirk Boomstik GEN5 Foam Core (Power & Spin)', brand:'Selkirk',
+    scores:{power:88,control:78,spin:84,arm:76}, weight:'medium',
+    level:['intermediate'], style:['banger'], priorities:['power','spin'],
+    price:'3,294', shopee:'https://s.shopee.ph/1Lc1byaJIZ', image:'' },
+
+  { id:'high-all-1', name:'Luzz Cannon T700 Thermoformed Paddle (Allaround & Spin)', brand:'Luzz',
+    scores:{power:86,control:88,spin:88,arm:82}, weight:'medium',
     level:['advanced'], style:['allaround'], priorities:['balance','spin'],
-    price:'9,500', shopee:'#', image:'' },
+    price:'6,765', shopee:'https://s.shopee.ph/AUqGWm7A8c', image:'' },
+
+  { id:'ultra-dinker-1', name:'Vatic Pro V-SOL PRO V7 Foam Core (Elite Control)', brand:'Vatic',
+    scores:{power:82,control:92,spin:88,arm:84}, weight:'medium',
+    level:['advanced'], style:['dinker'], priorities:['control','spin'],
+    price:'8,400', shopee:'https://s.shopee.ph/3VgWBrFhn0', image:'' },
+
+  { id:'mid-banger-5', name:'JUCIAO Speed X Gen3 Raw Carbon Paddle (Power & Spin)', brand:'JUCIAO',
+    scores:{power:88,control:80,spin:86,arm:78}, weight:'medium',
+    level:['intermediate'], style:['banger'], priorities:['power','spin'],
+    price:'3,469-3,499', shopee:'https://s.shopee.ph/1qYICl2Zv1', image:'' },
 
   // --- High-end paddles (₱10k-₱20k range) ---
-
-  { id:'luzz-pro-set-4in1', name:'Luzz Pro 4-in-1 Premium Set', brand:'Luzz',
-    scores:{power:88,control:86,spin:86,arm:80}, weight:'medium',
-    level:['intermediate','advanced'], style:['allaround'], priorities:['balance','spin'],
-    price:'15,090', shopee:'#', image:'' },
-
-  { id:'luzz-carbon-pro-16', name:'Luzz Carbon Pro 16mm Control', brand:'Luzz',
-    scores:{power:82,control:92,spin:86,arm:82}, weight:'medium',
-    level:['advanced'], style:['dinker','allaround'], priorities:['control','spin'],
-    price:'16,690', shopee:'#', image:'' },
-
-  { id:'vatic-oni-pro', name:'Vatic Pro Oni 14mm', brand:'Vatic',
-    scores:{power:92,control:84,spin:90,arm:76}, weight:'medium',
+  { id:'ultra-banger-1', name:'Wilson Blaze Pro 13mm Paddle (Elite Power & Spin)', brand:'Wilson',
+    scores:{power:92,control:82,spin:88,arm:74}, weight:'medium',
     level:['advanced'], style:['banger'], priorities:['power','spin'],
-    price:'12,500', shopee:'#', image:'' },
+    price:'11,546', shopee:'https://s.shopee.ph/60NrB2eBF0', image:'' },
 
-  { id:'luzz-blade-pro-14', name:'Luzz Blade Pro Carbon 14mm', brand:'Luzz',
-    scores:{power:88,control:82,spin:92,arm:78}, weight:'medium',
-    level:['advanced'], style:['banger','allaround'], priorities:['spin','power'],
-    price:'11,500', shopee:'#', image:'' }
+  { id:'ultra-banger-2', name:'Wilson Vesper Power 14 Paddle (Power & Speed)', brand:'Wilson',
+    scores:{power:90,control:80,spin:86,arm:76}, weight:'medium',
+    level:['advanced'], style:['banger'], priorities:['power','spin'],
+    price:'15,695', shopee:'https://s.shopee.ph/W2ucsba8L', image:'' },
+
+  { id:'ultra-dinker-2', name:'Wilson Cadence Pro 16 Paddle (Elite Control)', brand:'Wilson',
+    scores:{power:82,control:92,spin:86,arm:86}, weight:'medium',
+    level:['advanced'], style:['dinker'], priorities:['control','spin'],
+    price:'9,846', shopee:'https://s.shopee.ph/1VvRojvufh', image:'' },
+
+  { id:'ultra-banger-3', name:'Wilson Vesper Lite 14 Paddle (Power & Reach)', brand:'Wilson',
+    scores:{power:88,control:82,spin:86,arm:80}, weight:'medium',
+    level:['advanced'], style:['banger'], priorities:['power','spin'],
+    price:'15,695', shopee:'https://s.shopee.ph/60NrB2eBF0', image:'' },
+
 ];
 
 const BALLS = [
@@ -1215,26 +1243,32 @@ const BALLS = [
 ];
 
 const GRIPS = [
-  { id:'grip-1', name:'Overgrip 3-Pack', brand:'Placeholder',
-    desc:'Sweat-absorbing tacky grip for better paddle control.',
-    price:'299', shopee:'#', icon:'✊' },
-  { id:'grip-2', name:'Cushion Replacement Grip', brand:'Placeholder',
-    desc:'Thick padded grip for arm comfort and shock absorption.',
-    price:'399', shopee:'#', icon:'🤲' }
+  { id:'grip-1', name:'X-Ace Overgrip Set', brand:'X-Ace',
+    desc:'Anti-slip overgrip with sweat absorption for better control during rallies.',
+    price:'1,056', shopee:'https://s.shopee.ph/30kFc13bdD', icon:'✊' },
+
+  { id:'grip-2', name:'FABL3ZY Grip Tape Accessories', brand:'FABL3ZY',
+    desc:'Comes with paddle set, basic grip with decent tackiness for beginners.',
+    price:'895', shopee:'https://s.shopee.ph/8Kllxq6p1F', icon:'✊' }
 ];
 
 const BAGS = [
-  { id:'bag-1', name:'Paddle Sling Bag', brand:'Placeholder',
-    desc:'Fits 1-2 paddles + balls. Lightweight for casual play.',
-    price:'799', shopee:'#', icon:'👜' },
-  { id:'bag-2', name:'Pickleball Backpack', brand:'Placeholder',
-    desc:'Fits 2-4 paddles, shoes, water bottle. Padded compartments.',
-    price:'1,899', shopee:'#', icon:'🎒' }
+  { id:'bag-1', name:'ONAIR Sports Pickleball Backpack', brand:'ONAIR Sports',
+    desc:'Waterproof lightweight backpack with paddle holder, fits 1-2 paddles + essentials.',
+    price:'699', shopee:'https://s.shopee.ph/9UxjMx3AQ1', icon:'🎒' },
+
+  { id:'bag-2', name:'Sea Choice Large Capacity Pickleball Backpack', brand:'Sea Choice',
+    desc:'20L capacity, fits paddles, balls, shoes, and accessories. Great for daily play.',
+    price:'1,000', shopee:'https://s.shopee.ph/2BB8dUW3V2', icon:'🎒' },
+
+  { id:'bag-3', name:'TLDOSAC Pickleball Duffel Bag', brand:'TLDOSAC',
+    desc:'Spacious duffel with separate compartments for paddles, shoes, and gear.',
+    price:'2,899', shopee:'https://s.shopee.ph/6fdXzmEab4', icon:'👜' }
 ];
 
 const FAQS = [
   { q:'How do I choose the right pickleball paddle?',
-    a:'Take our free 2-minute quiz above! We match you based on your skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores 20+ paddles available on Shopee Philippines to find your top 3 matches.' },
+    a:'Take our free 2-minute quiz above! We match you based on your skill level, playstyle, arm comfort, weight preference, and budget. Our algorithm scores 30+ paddles available on Shopee Philippines to find your top 5 matches.' },
   { q:"What's the difference between a beginner and advanced pickleball paddle?",
     a:'Beginner paddles (under ₱2,500) are lighter, more forgiving, and prioritize control. Advanced paddles (₱6,000+) use specialized materials like carbon fiber for more power, spin, and precision — but require better technique to get the most out of them.' },
   { q:'Where can I buy pickleball gear in the Philippines?',
@@ -1776,12 +1810,18 @@ function toggleFAQ(i) {
   document.getElementById('faq-' + i).classList.toggle('open');
 }
 
+function updateDynamicCounts() {
+  const heroCount = document.getElementById('paddleCountHero');
+  if (heroCount) heroCount.textContent = PADDLES.length;
+}
+
 function init() {
   window.addEventListener('scroll', () => {
     const n = document.getElementById('nav');
     if (window.scrollY > 10) n.classList.add('scrolled');
     else n.classList.remove('scrolled');
   });
+  updateDynamicCounts();
   renderBrowseAll();
   renderFAQ();
 }
